@@ -1,0 +1,18 @@
+@(task: Task, taskForm: Form[String])
+
+
+@import helper._
+
+
+@main("Edit Task") {
+    
+    <h2>Edit Task</h2>
+      @helper.form(routes.Application.save(task.id)) {
+       
+        @inputText(field = taskForm("id"), args = 'value -> 10, 'placeholder -> task.id ,'readonly -> "readonly")
+        @inputText(field = taskForm("label"), args = 'value -> 10, 'placeholder -> task.label)
+        
+       <input type="submit" value="Save Tasks"/>
+        
+    }
+}
